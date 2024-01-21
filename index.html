@@ -43,7 +43,11 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
         function onEachFeature(feature, layer) {
-            // ... (unchanged)
+            if (feature.properties) {
+                var popupContent = "<h3>Feature Attributes</h3>";
+                // ... (unchanged)
+                layer.bindPopup(popupContent);
+            }
         }
 
         var geojsonLayer = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/Benjikemp/Blue_Lakes/main/Blue_Lakes_All.geojson", {
