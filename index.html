@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title></title>
+    <title>Blue Lakes Mapping</title>
     <style>
         body {
             margin: 0;
@@ -9,32 +10,78 @@
             text-align: center;
             background-color: #ffffff;
         }
+
         #container {
             padding: 10px;
             background-color: #ffffff;
             display: inline-block;
         }
+
         h1 {
             margin: 0;
         }
+
         #logo {
             display: block;
             margin: 0 auto;
             width: 25%;
-            background-color: transparent; /* Add this line */
+            background-color: transparent;
         }
+
         #map {
             height: 400px;
             margin: 10px auto;
         }
+
+        .metadata-section {
+            text-align: left;
+            padding: 20px;
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #f1f1f1;
+        }
+
+        .content {
+            display: none;
+            padding: 0 18px;
+            overflow: hidden;
+        }
     </style>
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
 </head>
+
 <body>
     <div id="container">
         <h1>Blue Lakes Mapping</h1>
         <img id="logo" src="https://raw.githubusercontent.com/TheLandBetweenGit/Blue_Lakes/main/Blue_Lakes_Logo.png" alt="Blue Lakes Logo">
         <div id="map"></div>
     </div>
+
+    <div id="dataSources" class="metadata-section">
+        <button class="collapsible">Data Sources</button>
+        <div class="content">
+            <h4>Data Sources</h4>
+            <ul>
+                <li>Lake Partner Program (LPP)2.1</li>
+                <li>Provincial Water Quality Monitoring Network (MOECP_PWQMN)2.2</li>
+                <li>Water Quality and Management of Lake Trout Lakes (OMOE_WQMR)2.3</li>
+                <li>Inland Lakes and Streams – Physical Conditions (OMOE_ILM)2.4</li>
+            </ul>
+        </div>
+    </div>
+
     <script src="leaflet/leaflet.js"></script>
     <link rel="stylesheet" href="leaflet/leaflet.css" />
     <script src="https://unpkg.com/leaflet-ajax@2.1.0/dist/leaflet.ajax.min.js"></script>
@@ -111,6 +158,7 @@
         geojsonLayer.addTo(map);
     </script>
 </body>
+
 </html>
 
 
