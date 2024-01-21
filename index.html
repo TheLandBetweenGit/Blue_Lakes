@@ -148,7 +148,9 @@
             onEachFeature: onEachFeature,
         });
 
-        geojsonLayer.addTo(map);
+        geojsonLayer.on('data:loaded', function () {
+            geojsonLayer.addTo(map);
+        });
 
         function toggleCollapsible(elementId) {
             var content = document.getElementById(elementId);
@@ -162,6 +164,7 @@
 </body>
 
 </html>
+
 
 
 
